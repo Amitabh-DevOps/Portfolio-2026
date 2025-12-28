@@ -55,7 +55,7 @@ export default function Home() {
               <span className="section-subtitle">Biography</span>
               <h2 className="section-title mt-4">Architecting <br /> Efficiency.</h2>
             </div>
-            <div className="lg:col-span-7 space-y-8 text-xl text-slate-400 font-medium leading-relaxed">
+            <div className="lg:col-span-7 space-y-8 text-base md:text-xl text-slate-400 font-medium leading-relaxed">
               <motion.p {...fadeInUp}>
                 As a <span className="text-white">DevOps Engineer</span>, I focus on the intersection of code and infrastructure. My mission is to transform manual friction into seamless, automated delivery pipelines.
               </motion.p>
@@ -113,7 +113,7 @@ export default function Home() {
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 items-start text-slate-400 group-hover:text-slate-300 transition-colors">
                     <div className="mt-2.5 w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-colors flex-shrink-0" />
-                    <p className="text-lg leading-tight font-medium">{item}</p>
+                    <p className="text-base md:text-lg leading-tight font-medium">{item}</p>
                   </div>
                 ))}
               </div>
@@ -231,13 +231,13 @@ export default function Home() {
 
         {/* Contact Section */}
         <section id="contact" className="scroll-mt-32">
-          <div className="relative glass-morphism p-8 md:p-20 rounded-[40px] md:rounded-[60px] border-white/5 overflow-hidden">
+          <div className="relative glass-morphism p-5 md:p-20 rounded-[40px] md:rounded-[60px] border-white/5 overflow-hidden">
             <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 blur-[120px] -z-10" />
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-20 items-center">
               <div className="space-y-6 md:space-y-10">
                 <h2 className="text-4xl md:text-6xl font-black text-white italic tracking-tighter leading-none uppercase">Let's <br /> <span className="text-slate-600">Connect.</span></h2>
-                <p className="text-xl text-slate-400 font-medium max-w-sm">Ready to build high-performance infrastructure? I'm always open to new challenges.</p>
+                <p className="text-base md:text-xl text-slate-400 font-medium max-w-sm">Ready to build high-performance infrastructure? I'm always open to new challenges.</p>
 
                 <div className="flex gap-4 flex-wrap">
                   <SocialIcon icon={<Linkedin />} href="https://linkedin.com/in/amitabh-devops" label="LinkedIn Profile" />
@@ -269,7 +269,7 @@ function ProjectCard({ image, title, desc, tags, link }: { image: string, title:
   return (
     <motion.div
       variants={fadeInUp}
-      className={`group glass-morphism p-6 rounded-[40px] border-white/5 hover:border-primary/20 transition-all duration-500 overflow-hidden relative`}
+      className={`group glass-morphism p-4 md:p-6 rounded-[40px] border-white/5 hover:border-primary/20 transition-all duration-500 overflow-hidden relative`}
     >
       <div className="relative aspect-video w-full rounded-[32px] overflow-hidden mb-8 bg-slate-950/50">
         <Image
@@ -285,7 +285,7 @@ function ProjectCard({ image, title, desc, tags, link }: { image: string, title:
       </div>
       <div className="space-y-4 px-2 pb-2">
         <div className="flex justify-between items-start gap-4">
-          <h3 className="text-xl font-black text-white italic tracking-tight leading-tight group-hover:text-primary transition-colors">{title}</h3>
+          <h3 className="text-base md:text-xl font-black text-white italic tracking-tight leading-tight group-hover:text-primary transition-colors">{title}</h3>
         </div>
         <p className="text-sm text-slate-400 font-medium line-clamp-3 leading-relaxed">{desc}</p>
         <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">

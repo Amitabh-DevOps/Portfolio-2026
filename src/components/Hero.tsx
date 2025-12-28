@@ -41,7 +41,7 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            className="text-lg md:text-2xl text-slate-400 font-medium max-w-lg leading-relaxed"
+                            className="text-base md:text-2xl text-slate-400 font-medium max-w-lg leading-relaxed"
                         >
                             DevOps Engineer & Cloud Architect building resilient, automated infrastructure for modern digital ecosystems.
                         </motion.p>
