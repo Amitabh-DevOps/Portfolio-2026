@@ -51,15 +51,15 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
-                        className="flex flex-wrap gap-4"
+                        className="flex flex-row flex-nowrap gap-3 md:gap-4"
                     >
                         <Magnetic>
-                            <a href="#projects" className="px-8 py-4 bg-white text-slate-950 font-bold rounded-full hover:bg-primary transition-all duration-300 flex items-center gap-2 group">
-                                View Work <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            <a href="#projects" className="px-5 py-3 text-sm md:px-8 md:py-4 md:text-base bg-white text-slate-950 font-bold rounded-full hover:bg-primary transition-all duration-300 flex items-center gap-2 group whitespace-nowrap">
+                                View Work <ChevronRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                             </a>
                         </Magnetic>
                         <Magnetic>
-                            <a href="#contact" className="px-8 py-4 glass-morphism rounded-full font-bold hover:bg-white/5 transition-all flex items-center gap-2 group border-white/10">
+                            <a href="#contact" className="px-5 py-3 text-sm md:px-8 md:py-4 md:text-base glass-morphism rounded-full font-bold hover:bg-white/5 transition-all flex items-center gap-2 group border-white/10 whitespace-nowrap">
                                 Get in Touch
                             </a>
                         </Magnetic>

@@ -38,10 +38,13 @@ export default function Navbar() {
                     const commitDate = new Date(validEvent.created_at);
                     const now = new Date();
                     const diffMs = now.getTime() - commitDate.getTime();
+                    const diffMinutes = Math.floor(diffMs / (1000 * 60));
                     const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
 
-                    if (diffHours < 1) {
+                    if (diffMinutes < 5) {
                         setLastCommit("Just Now");
+                    } else if (diffMinutes < 60) {
+                        setLastCommit(`${diffMinutes}m ago`);
                     } else if (diffHours < 24) {
                         setLastCommit(`${diffHours}h ago`);
                     } else {

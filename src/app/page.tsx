@@ -234,8 +234,8 @@ export default function Home() {
           <div className="relative glass-morphism p-8 md:p-20 rounded-[40px] md:rounded-[60px] border-white/5 overflow-hidden">
             <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 blur-[120px] -z-10" />
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              <div className="space-y-8 md:space-y-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-20 items-center">
+              <div className="space-y-6 md:space-y-10">
                 <h2 className="text-4xl md:text-6xl font-black text-white italic tracking-tighter leading-none uppercase">Let's <br /> <span className="text-slate-600">Connect.</span></h2>
                 <p className="text-xl text-slate-400 font-medium max-w-sm">Ready to build high-performance infrastructure? I'm always open to new challenges.</p>
 
@@ -352,15 +352,15 @@ function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
         <FloatingInput name="name" label="Your Name" placeholder="John Doe" required />
         <FloatingInput name="email" label="Email Address" placeholder="john@example.com" type="email" required />
       </div>
       <FloatingInput name="subject" label="Subject" placeholder="Project Discussion" required />
       <div className="space-y-2">
         <label className="text-[10px] font-bold text-slate-600 uppercase tracking-widest px-4">Message</label>
-        <textarea name="message" required className="w-full bg-white/5 border border-white/5 rounded-[24px] p-6 h-40 outline-none focus:border-primary/20 transition-all text-slate-200" placeholder="How can I help you?"></textarea>
+        <textarea name="message" required className="w-full bg-white/5 border border-white/5 rounded-[24px] p-4 md:p-6 h-32 md:h-40 outline-none focus:border-primary/20 transition-all text-slate-200" placeholder="How can I help you?"></textarea>
       </div>
       <button disabled={status === "submitting"} className="w-full py-5 bg-white text-slate-950 font-black uppercase tracking-[0.4em] text-xs rounded-full hover:bg-primary transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
         {status === "submitting" ? "Transmitting..." : "Send Signal"}
@@ -380,7 +380,7 @@ function FloatingInput({ label, placeholder, name, type = "text", required }: { 
         type={type}
         name={name}
         required={required}
-        className="w-full bg-white/5 border border-white/5 rounded-full px-8 py-4 outline-none focus:border-primary/20 transition-all text-slate-200"
+        className="w-full bg-white/5 border border-white/5 rounded-full px-6 py-3 md:px-8 md:py-4 outline-none focus:border-primary/20 transition-all text-slate-200"
         placeholder={placeholder}
       />
     </div>
