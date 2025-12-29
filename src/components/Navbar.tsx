@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, FileText, Menu, X } from "lucide-react";
 import Link from "next/link";
@@ -16,52 +16,6 @@ const navItems = [
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
-    const [lastCommit, setLastCommit] = useState<string | null>(null);
-
-    useEffect(() => {
-        const fetchGithubActivity = async () => {
-            try {
-                const pat = process.env.NEXT_PUBLIC_GITHUB_PAT;
-                const headers: HeadersInit = {};
-                if (pat) {
-                    headers['Authorization'] = `token ${pat}`;
-                }
-
-                const response = await fetch(`https://api.github.com/users/Amitabh-DevOps/events/public?t=${new Date().getTime()}`, {
-                    headers,
-                    cache: 'no-store'
-                });
-                const data = await response.json();
-                const validEvent = data.find((event: any) => event.type === 'PushEvent' || event.type === 'CreateEvent');
-
-                if (validEvent) {
-                    const commitDate = new Date(validEvent.created_at);
-                    const now = new Date();
-                    const diffMs = now.getTime() - commitDate.getTime();
-                    const diffMinutes = Math.floor(diffMs / (1000 * 60));
-                    const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-
-                    if (diffMinutes < 5) {
-                        setLastCommit("Just Now");
-                    } else if (diffMinutes < 60) {
-                        setLastCommit(`${diffMinutes}m ago`);
-                    } else if (diffHours < 24) {
-                        setLastCommit(`${diffHours}h ago`);
-                    } else {
-                        const diffDays = Math.floor(diffHours / 24);
-                        setLastCommit(`${diffDays}d ago`);
-                    }
-                }
-            } catch (error) {
-                console.error("Error fetching GitHub activity:", error);
-                setLastCommit("Online");
-            }
-        };
-
-        fetchGithubActivity();
-        const interval = setInterval(fetchGithubActivity, 3600000); // Refresh every hour
-        return () => clearInterval(interval);
-    }, []);
 
     return (
         <nav className="fixed top-0 left-0 right-0 z-[20000] px-4 md:px-6 py-6 md:py-8 pointer-events-none">
@@ -72,18 +26,6 @@ export default function Navbar() {
                     <span className="text-2xl font-black tracking-tighter text-white">
                         Amitabh<span className="text-primary italic">.</span>
                     </span>
-                    <div className="flex items-center gap-1.5 md:gap-2 px-2 py-1 md:px-3 md:py-1.5 rounded-full bg-white/5 border border-white/10 group-hover:border-primary/30 transition-colors">
-                        <span className="relative flex h-1.5 w-1.5 md:h-2 md:w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-1.5 w-1.5 md:h-2 md:w-2 bg-primary"></span>
-                        </span>
-                        <div className="flex flex-col">
-                            <span className="text-[7px] md:text-[9px] font-black text-slate-500 uppercase tracking-widest leading-none">System Pulse</span>
-                            {lastCommit && (
-                                <span className="text-[6px] md:text-[7px] font-bold text-primary italic uppercase tracking-tighter mt-0.5">{lastCommit}</span>
-                            )}
-                        </div>
-                    </div>
                 </Link>
 
                 {/* Desktop Nav Pills */}

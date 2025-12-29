@@ -1,12 +1,58 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Magnetic from "./Magnetic";
 
 export default function Hero() {
+    const [lastCommit, setLastCommit] = useState<string | null>(null);
+
+    useEffect(() => {
+        const fetchGithubActivity = async () => {
+            try {
+                const pat = process.env.NEXT_PUBLIC_GITHUB_PAT;
+                const headers: HeadersInit = {};
+                if (pat) {
+                    headers['Authorization'] = `token ${pat}`;
+                }
+
+                const response = await fetch(`https://api.github.com/users/Amitabh-DevOps/events/public?t=${new Date().getTime()}`, {
+                    headers,
+                    cache: 'no-store'
+                });
+                const data = await response.json();
+                const validEvent = data.find((event: any) => event.type === 'PushEvent' || event.type === 'CreateEvent');
+
+                if (validEvent) {
+                    const commitDate = new Date(validEvent.created_at);
+                    const now = new Date();
+                    const diffMs = now.getTime() - commitDate.getTime();
+                    const diffMinutes = Math.floor(diffMs / (1000 * 60));
+                    const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+
+                    if (diffMinutes < 5) {
+                        setLastCommit("Just Now");
+                    } else if (diffMinutes < 60) {
+                        setLastCommit(`${diffMinutes}m ago`);
+                    } else if (diffHours < 24) {
+                        setLastCommit(`${diffHours}h ago`);
+                    } else {
+                        const diffDays = Math.floor(diffHours / 24);
+                        setLastCommit(`${diffDays}d ago`);
+                    }
+                }
+            } catch (error) {
+                console.error("Error fetching GitHub activity:", error);
+                setLastCommit("Online");
+            }
+        };
+
+        fetchGithubActivity();
+        const interval = setInterval(fetchGithubActivity, 3600000); // Refresh every hour
+        return () => clearInterval(interval);
+    }, []);
     return (
         <section id="home" className="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden">
             {/* Dynamic Background Glow */}
@@ -102,14 +148,22 @@ export default function Hero() {
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent" />
                         </div>
 
-                        {/* Experience Floating Badge */}
+                        {/* System Pulse Floating Badge (Relocated) */}
                         <motion.div
                             animate={{ y: [0, -10, 0] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -bottom-6 -left-6 glass-morphism p-6 rounded-3xl shadow-xl border-white/10"
+                            className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 glass-morphism p-3 md:p-4 rounded-2xl md:rounded-3xl shadow-xl border-white/10 flex items-center gap-2 md:gap-3"
                         >
-                            <p className="text-3xl font-black text-white italic">2026</p>
-                            <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Core Deploy</p>
+                            <div className="relative flex h-2 w-2 md:h-3 md:w-3">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 md:h-3 md:w-3 bg-primary"></span>
+                            </div>
+                            <div>
+                                <p className="text-[8px] md:text-[10px] font-black text-slate-500 uppercase tracking-widest leading-none mb-0.5 md:mb-1">System Pulse</p>
+                                <p className="text-xs md:text-base font-black text-white italic tracking-tight leading-none whitespace-nowrap">
+                                    {lastCommit || "..."}
+                                </p>
+                            </div>
                         </motion.div>
                     </div>
                 </motion.div>
