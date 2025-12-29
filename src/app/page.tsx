@@ -172,7 +172,7 @@ export default function Home() {
               <span className="section-subtitle">Modules</span>
               <h2 className="section-title">Selected Works.</h2>
             </div>
-            <a href="https://github.com/Amitabh-DevOps" target="_blank" className="px-6 py-3 rounded-full border border-white/10 hover:bg-white/5 transition-all flex items-center gap-2 text-sm font-bold text-slate-300">
+            <a href="https://github.com/Amitabh-DevOps" target="_blank" className="hidden md:flex px-6 py-3 rounded-full border border-white/10 hover:bg-white/5 transition-all items-center gap-2 text-sm font-bold text-slate-300">
               Explore All <Github className="w-4 h-4" />
             </a>
           </div>
@@ -227,6 +227,12 @@ export default function Home() {
               link="https://trainwithshubham.blog/automate-cicd-spring-boot-banking-app-jenkins-docker-github/"
             />
           </motion.div>
+
+          <div className="flex md:hidden justify-end mt-8">
+            <a href="https://github.com/Amitabh-DevOps" target="_blank" className="px-6 py-3 rounded-full border border-white/10 hover:bg-white/5 transition-all flex items-center gap-2 text-sm font-bold text-slate-300">
+              Explore All <Github className="w-4 h-4" />
+            </a>
+          </div>
         </section>
 
         {/* Contact Section */}
