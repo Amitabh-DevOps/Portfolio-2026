@@ -12,35 +12,18 @@ export default function Hero() {
     useEffect(() => {
         const fetchGithubActivity = async () => {
             try {
-                const pat = process.env.NEXT_PUBLIC_GITHUB_PAT;
-                const headers: HeadersInit = {};
-                console.log("PAT Check:", pat ? "PAT Found" : "No PAT Found");
-
-                if (pat) {
-                    headers['Authorization'] = `token ${pat}`;
-                }
-
+                // Using public events as they are most reliable for CORS.
+                // Note: GitHub has an internal delay of 2-5 minutes for events to appear in this feed.
                 const timestamp = new Date().getTime();
-                const buster = Math.random().toString(36).substring(7);
-                // Using the authenticated events endpoint which is generally more real-time
-                const apiUrl = `https://api.github.com/users/Amitabh-DevOps/events?t=${timestamp}&z=${buster}`;
-
-                const response = await fetch(apiUrl, {
-                    headers,
+                const response = await fetch(`https://api.github.com/users/Amitabh-DevOps/events/public?t=${timestamp}`, {
                     cache: 'no-store'
                 });
+
+                if (!response.ok) throw new Error("API Error");
+
                 const data = await response.json();
 
-                // Debug log to help identify if events are appearing
-                console.log("GitHub Pulse Check:", {
-                    status: response.status,
-                    eventCount: data.length,
-                    latestEvent: data[0]?.type,
-                    latestDate: data[0]?.created_at
-                });
-
                 if (Array.isArray(data) && data.length > 0) {
-                    // Look for ANY activity, not just push/create
                     const validEvent = data.find((event: any) =>
                         ['PushEvent', 'CreateEvent', 'WatchEvent', 'ForkEvent', 'PublicEvent', 'PullRequestEvent'].includes(event.type)
                     );
@@ -65,13 +48,13 @@ export default function Hero() {
                     }
                 }
             } catch (error) {
-                console.error("Error fetching GitHub activity:", error);
+                console.error("Pulse error:", error);
                 setLastCommit("Online");
             }
         };
 
         fetchGithubActivity();
-        const interval = setInterval(fetchGithubActivity, 30000); // Check every 30 seconds for faster feedback during debug
+        const interval = setInterval(fetchGithubActivity, 60000); // Back to 1 minute to avoid rate limits since we removed PAT from headers
         return () => clearInterval(interval);
     }, []);
     return (
