@@ -25,7 +25,7 @@ export default function Hero() {
 
                 if (Array.isArray(data) && data.length > 0) {
                     const validEvent = data.find((event: any) =>
-                        ['PushEvent', 'CreateEvent', 'WatchEvent', 'ForkEvent', 'PublicEvent', 'PullRequestEvent'].includes(event.type)
+                        ['PushEvent', 'CreateEvent', 'PullRequestEvent'].includes(event.type)
                     );
 
                     if (validEvent) {
