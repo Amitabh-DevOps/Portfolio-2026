@@ -25,7 +25,7 @@ export default function Experience() {
                         </div>
                         <div className="flex flex-col items-start md:items-end gap-2">
                             <span className="px-5 py-2 rounded-full bg-white/5 border border-white/5 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                                Dec 2024 — Present
+                                Dec 2024 — Mar 2026
                             </span>
                             <div className="flex flex-wrap gap-2">
                                 <span className="hud-metric text-[10px] text-primary bg-primary/10 px-3 py-1 rounded-full border border-primary/20 uppercase tracking-widest">40% Efficiency Gain</span>
@@ -40,7 +40,8 @@ export default function Experience() {
                             "Engineered IaC solutions using Terraform and Ansible for 60% faster provisioning",
                             "Implemented containerization with K8s, improving scalability by 35%",
                             "Developed observability dashboards with Prometheus and Grafana",
-                            "Mentored 20+ learners on DevOps best practices and high-performance culture"
+                            "Mentored 20+ learners on DevOps best practices and high-performance culture",
+                            "Organized Online DevOps Hackathons"
                         ].map((item, i) => (
                             <div key={i} className="flex gap-4 items-start text-slate-400 group-hover:text-slate-200 transition-colors duration-1500">
                                 <div className="mt-2.5 w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-colors duration-1500 flex-shrink-0 shadow-[0_0_10px_rgba(56,189,248,0)] group-hover:shadow-[0_0_10px_rgba(56,189,248,0.5)]" />
