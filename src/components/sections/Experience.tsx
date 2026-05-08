@@ -25,7 +25,7 @@ export default function Experience() {
                         </div>
                         <div className="flex flex-col items-start md:items-end gap-2">
                             <span className="px-5 py-2 rounded-full bg-white/5 border border-white/5 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                                Dec 2024 — Mar 2026
+                                Jul 2025 - Jan 2026 
                             </span>
                             <div className="flex flex-wrap gap-2">
                                 <span className="hud-metric text-[10px] text-primary bg-primary/10 px-3 py-1 rounded-full border border-primary/20 uppercase tracking-widest">40% Efficiency Gain</span>

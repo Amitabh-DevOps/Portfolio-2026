@@ -44,7 +44,7 @@ export default function Navbar() {
                         <Link href="https://github.com/Amitabh-DevOps" target="_blank" rel="noopener noreferrer" title="GitHub Profile" className="p-2 text-slate-400 hover:text-primary transition-colors">
                             <Github className="w-5 h-5" />
                         </Link>
-                        <Link href="https://drive.google.com/file/d/1sKX_HU1bZXQY0QLf1r8hUNrc2XWCEXUb/view?usp=sharing" target="_blank" rel="noopener noreferrer" title="View Resume" className="p-2 text-slate-400 hover:text-primary transition-colors">
+                        <Link href="https://drive.google.com/file/d/1zf22ljBMrZecPluz7_T7uDzL2kJlp_Eg/view?usp=sharing" target="_blank" rel="noopener noreferrer" title="View Resume" className="p-2 text-slate-400 hover:text-primary transition-colors">
                             <FileText className="w-5 h-5" />
                         </Link>
                     </div>

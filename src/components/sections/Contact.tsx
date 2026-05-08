@@ -20,8 +20,8 @@ export default function Contact() {
                             <SocialIcon icon={<Linkedin />} href="https://linkedin.com/in/amitabh-devops" label="LinkedIn Profile" />
                             <SocialIcon icon={<Github />} href="https://github.com/Amitabh-DevOps" label="GitHub Profile" />
                             <SocialIcon icon={<Twitter />} href="https://x.com/Amitabh_DevOps" label="X (Twitter) Profile" />
-                            <SocialIcon icon={<Youtube />} href="https://www.youtube.com/@Amitabh004" label="YouTube Channel" />
-                            <SocialIcon icon={<BookText />} href="https://amitabhdevops.hashnode.dev/" label="Hashnode Blog" />
+                            <SocialIcon icon={<Youtube />} href="https://www.youtube.com/@SoniAmitabh" label="YouTube Channel" />
+                            <SocialIcon icon={<BookText />} href="https://blog.amitabh.cloud/" label="Hashnode Blog" />
                             <SocialIcon icon={<Mail />} href="mailto:amitabhdevops2024@gmail.com" label="Send Email" />
                         </div>
                     </div>
