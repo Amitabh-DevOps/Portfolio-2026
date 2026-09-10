@@ -25,18 +25,18 @@ export default function Navbar() {
 
                 {/* Logo */}
                 <a href="#home" className="group flex items-center gap-2 md:gap-4">
-                    <span className="text-2xl font-black tracking-tighter text-white">
+                        <span className="text-xl font-semibold tracking-tight text-white">
                         Amitabh<span className="text-primary italic">.</span>
                     </span>
                 </a>
 
                 {/* Desktop Nav Pills */}
-                <div className="hidden lg:flex items-center gap-1 glass-morphism p-1 rounded-full border-white/5 bg-black/40">
+                <div className="hidden lg:flex items-center gap-1 glass-morphism p-1 rounded-lg border-white/10 bg-slate-950/70">
                     {navItems.map((item) => (
                         <a
                             key={item.name}
                             href={item.href}
-                            className="px-5 py-2 rounded-full text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-all"
+                            className="px-4 py-2 rounded-md text-xs font-semibold text-slate-400 hover:text-white hover:bg-white/10 transition-all"
                         >
                             {item.name}
                         </a>
@@ -55,7 +55,9 @@ export default function Navbar() {
                 {/* Mobile Toggle */}
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="lg:hidden p-3 glass-morphism rounded-full border-white/5"
+                    aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+                    aria-expanded={isOpen}
+                    className="lg:hidden p-3 glass-morphism rounded-lg border-white/10"
                 >
                     {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                 </button>

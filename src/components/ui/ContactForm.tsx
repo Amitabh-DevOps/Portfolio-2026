@@ -41,13 +41,13 @@ export default function ContactForm() {
 
     if (status === "success") {
         return (
-            <div className="h-full flex flex-col items-center justify-center space-y-4 text-center p-10 bg-white/5 rounded-[40px] border border-white/10">
-                <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center text-green-500 mb-4">
+            <div className="h-full flex flex-col items-center justify-center space-y-4 text-center p-8 bg-white/[0.03] rounded-xl border border-white/10">
+                <div className="w-14 h-14 rounded-xl bg-green-500/15 flex items-center justify-center text-green-500 mb-4">
                     <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white">Signal Received.</h3>
-                <p className="text-slate-400">Thank you for connecting. I&apos;ll deploy a response shortly.</p>
-                <button onClick={() => setStatus("idle")} className="text-sm font-bold text-primary uppercase tracking-widest hover:text-white transition-colors">Send Another</button>
+                <h3 className="text-2xl font-bold text-white">Message received.</h3>
+                <p className="text-slate-400">Thanks for reaching out. I&apos;ll get back to you soon.</p>
+                <button onClick={() => setStatus("idle")} className="text-sm font-semibold text-primary uppercase tracking-widest hover:text-white transition-colors">Send another</button>
             </div>
         );
     }
@@ -60,14 +60,14 @@ export default function ContactForm() {
             </div>
             <FloatingInput name="subject" label="Subject" placeholder="Project Discussion" required />
             <div className="space-y-2">
-                <label className="text-[10px] font-bold text-slate-600 uppercase tracking-widest px-4">Message</label>
-                <textarea name="message" required className="w-full bg-white/5 border border-white/5 rounded-[24px] p-4 md:p-6 h-32 md:h-40 outline-none focus:border-primary/20 transition-all text-slate-200" placeholder="How can I help you?"></textarea>
+                <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-1">Message</label>
+                <textarea name="message" required className="w-full bg-white/[0.03] border border-white/10 rounded-xl p-4 md:p-5 h-32 md:h-40 outline-none focus:border-primary/60 transition-all text-slate-200" placeholder="How can I help you?"></textarea>
             </div>
-            <button disabled={status === "submitting"} className="w-full py-5 bg-white text-slate-950 font-black uppercase tracking-[0.4em] text-xs rounded-full hover:bg-primary transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
-                {status === "submitting" ? "Transmitting..." : "Send Signal"}
+            <button disabled={status === "submitting"} className="w-full py-4 bg-primary text-slate-950 font-bold uppercase tracking-[0.25em] text-xs rounded-lg hover:bg-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                {status === "submitting" ? "Sending..." : "Send message"}
             </button>
             {status === "error" && (
-                <p className="text-red-400 text-xs font-bold text-center uppercase tracking-widest">Transmission Failed. Please try email.</p>
+                <p className="text-red-400 text-xs font-bold text-center">Something went wrong. Please try email instead.</p>
             )}
         </form>
     );
@@ -81,7 +81,7 @@ function FloatingInput({ label, placeholder, name, type = "text", required }: { 
                 type={type}
                 name={name}
                 required={required}
-                className="w-full bg-white/5 border border-white/5 rounded-full px-6 py-3 md:px-8 md:py-4 outline-none focus:border-primary/20 transition-all text-slate-200"
+                className="w-full bg-white/[0.03] border border-white/10 rounded-lg px-5 py-3 md:px-6 md:py-4 outline-none focus:border-primary/60 transition-all text-slate-200"
                 placeholder={placeholder}
             />
         </div>

@@ -21,7 +21,7 @@ export default function Home() {
       <Navbar />
       <Hero />
 
-      <div className="container max-w-6xl mx-auto px-4 md:px-6 space-y-40 pb-40">
+      <div className="container max-w-6xl mx-auto px-4 md:px-6 space-y-32 pb-32">
         <About />
         <Experience />
         <Skills />
