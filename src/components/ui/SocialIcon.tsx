@@ -16,8 +16,7 @@ export default function SocialIcon({ icon, href, label }: SocialIconProps) {
             title={label}
             className="p-5 glass-morphism rounded-full border-white/5 text-slate-500 hover:text-white hover:border-primary/40 transition-all duration-1000"
         >
-            {/* @ts-ignore */}
-            {React.isValidElement(icon) ? React.cloneElement(icon as React.ReactElement, { size: 24 }) : icon}
+            {icon}
         </a>
     );
 }

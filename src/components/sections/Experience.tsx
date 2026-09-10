@@ -9,7 +9,7 @@ export default function Experience() {
     return (
         <section id="experience" className="scroll-mt-32">
             <span className="section-subtitle">Journey</span>
-            <h2 className="section-title mt-4">Professional Deployment.</h2>
+            <h2 className="section-title mt-4">Professional Experience.</h2>
 
             <div className="mt-20 max-w-4xl mx-auto">
                 <motion.div
@@ -20,7 +20,7 @@ export default function Experience() {
 
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
                         <div>
-                            <h3 className="text-3xl font-black text-white italic tracking-tight group-hover:text-primary transition-colors duration-1500">DevOps Engineer</h3>
+                            <h3 className="text-3xl font-black text-white italic tracking-tight group-hover:text-primary transition-colors duration-1500">DevOps Engineering Intern</h3>
                             <p className="text-primary font-bold tracking-widest text-sm mt-1">TRAINWITHSHUBHAM</p>
                         </div>
                         <div className="flex flex-col items-start md:items-end gap-2">

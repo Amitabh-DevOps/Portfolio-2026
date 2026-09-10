@@ -16,23 +16,23 @@ export default function About() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div className="lg:col-span-5">
                     <span className="section-subtitle">Biography</span>
-                    <h2 className="section-title mt-4">Architecting <br /> Efficiency.</h2>
+                    <h2 className="section-title mt-4">Cloud &amp; DevOps <br /> Engineering.</h2>
                 </div>
                 <div className="lg:col-span-7 space-y-8 text-base md:text-xl text-slate-400 font-medium leading-relaxed">
                     <motion.p {...fadeInUp}>
-                        As a <span className="text-white">DevOps Engineer</span>, I focus on the intersection of code and infrastructure. My mission is to transform manual friction into seamless, automated delivery pipelines.
+                        I am a <span className="text-white">Cloud &amp; DevOps Engineer</span> focused on building secure, scalable infrastructure and reliable delivery pipelines with AWS, Kubernetes, and Infrastructure as Code.
                     </motion.p>
                     <motion.p {...fadeInUp}>
-                        Currently exploring the depth of <span className="text-primary italic">Cloud Native Ecosystems</span>, I specialize in building high-availability systems that evolve alongside the business.
+                        As an <span className="text-primary italic">AWS Community Builder</span> in the Containers category, I share practical knowledge and build cloud-native systems that help teams ship with confidence.
                     </motion.p>
 
                     <div className="pt-8 grid grid-cols-2 gap-8 border-t border-white/5">
                         <div>
-                            <h4 className="text-4xl font-black text-white italic tracking-tighter">4.3K+</h4>
+                            <h4 className="text-4xl font-black text-white italic tracking-tighter">5K+</h4>
                             <p className="text-xs font-bold text-slate-600 uppercase tracking-widest mt-1">LinkedIn Network</p>
                         </div>
                         <div>
-                            <h4 className="text-4xl font-black text-white italic tracking-tighter">500+</h4>
+                            <h4 className="text-4xl font-black text-white italic tracking-tighter">700+</h4>
                             <p className="text-xs font-bold text-slate-600 uppercase tracking-widest mt-1">Followers on X.com</p>
                         </div>
                     </div>

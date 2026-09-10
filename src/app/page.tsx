@@ -4,7 +4,6 @@ import React from "react";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import CustomCursor from "@/components/CustomCursor";
 
 // Static import for LCP candidate
 // Hero is already imported statically
@@ -19,7 +18,6 @@ const Contact = dynamic(() => import("@/components/sections/Contact"), { ssr: tr
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-background text-slate-200 selection:bg-primary/20">
-      <CustomCursor />
       <Navbar />
       <Hero />
 

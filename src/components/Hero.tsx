@@ -6,6 +6,20 @@ import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Magnetic from "./Magnetic";
 
+interface GithubEvent {
+    type?: string;
+    created_at?: string;
+}
+
+function isRelevantGithubEvent(event: unknown): event is GithubEvent {
+    if (typeof event !== "object" || event === null) {
+        return false;
+    }
+
+    const candidate = event as GithubEvent;
+    return ["PushEvent", "CreateEvent", "PullRequestEvent"].includes(candidate.type ?? "");
+}
+
 export default function Hero() {
     const [lastCommit, setLastCommit] = useState<string | null>(null);
 
@@ -21,14 +35,12 @@ export default function Hero() {
 
                 if (!response.ok) throw new Error("API Error");
 
-                const data = await response.json();
+                const data: unknown = await response.json();
 
                 if (Array.isArray(data) && data.length > 0) {
-                    const validEvent = data.find((event: any) =>
-                        ['PushEvent', 'CreateEvent', 'PullRequestEvent'].includes(event.type)
-                    );
+                    const validEvent = data.find(isRelevantGithubEvent);
 
-                    if (validEvent) {
+                    if (validEvent?.created_at) {
                         const commitDate = new Date(validEvent.created_at);
                         const now = new Date();
                         const diffMs = now.getTime() - commitDate.getTime();
@@ -93,7 +105,7 @@ export default function Hero() {
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="text-base md:text-2xl text-slate-400 font-medium max-w-lg leading-relaxed"
                         >
-                            DevOps Engineer & Cloud Architect building resilient, automated infrastructure for modern digital ecosystems.
+                            Cloud & DevOps Engineer building secure, scalable infrastructure with AWS, Kubernetes, and automation.
                         </motion.p>
                     </div>
 
@@ -143,9 +155,10 @@ export default function Hero() {
                         <div className="absolute inset-0 bg-primary/20 rounded-[40px] blur-[60px] group-hover:blur-[80px] transition-all duration-1000 -z-10" />
                         <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-[40px] overflow-hidden border border-white/10 bg-slate-900 shadow-2xl">
                             <Image
-                                src="/img5.jpeg"
+                                src="/profile-pic.jpeg"
                                 alt="Amitabh Soni"
                                 fill
+                                sizes="(max-width: 1024px) 288px, 384px"
                                 className="object-cover group-hover:scale-105 transition-all duration-[1500ms] ease-in-out grayscale group-hover:grayscale-0"
                                 priority
                             />

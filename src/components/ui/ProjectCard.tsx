@@ -29,7 +29,7 @@ export default function ProjectCard({ image, title, desc, tags, link }: ProjectC
                     className="object-contain group-hover:scale-105 transition-all duration-1500 grayscale group-hover:grayscale-0 filter drop-shadow-2xl"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                <a href={link} target="_blank" className="absolute top-4 right-4 p-4 bg-white/10 backdrop-blur-md rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-white text-white hover:text-black z-20">
+                <a href={link} target="_blank" rel="noopener noreferrer" className="absolute top-4 right-4 p-4 bg-white/10 backdrop-blur-md rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-white text-white hover:text-black z-20">
                     <ArrowUpRight className="w-5 h-5" />
                 </a>
             </div>

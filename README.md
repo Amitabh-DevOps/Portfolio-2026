@@ -39,7 +39,6 @@ The codebase is structured for maintainability and performance:
 3. **Configure Environment Variables**
    Create a `.env.local` file in the root directory and include the following:
    ```env
-   NEXT_PUBLIC_GITHUB_PAT=your_github_personal_access_token
    NEXT_PUBLIC_FORMSPREE_ENDPOINT=your_formspree_endpoint
    ```
 

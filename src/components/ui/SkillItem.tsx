@@ -26,7 +26,6 @@ export default function SkillItem({ name, icon, color }: { name: string, icon: s
                     width={48}
                     height={48}
                     className="object-contain"
-                    unoptimized
                 />
             </div>
             <span className="relative text-xs font-bold text-slate-500 group-hover:text-white transition-colors duration-1500 z-10">{name}</span>

@@ -13,8 +13,8 @@ export default function Contact() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-20 items-center">
                     <div className="space-y-6 md:space-y-10">
-                        <h2 className="text-4xl md:text-6xl font-black text-white italic tracking-tighter leading-none uppercase">Let's <br /> <span className="text-slate-600">Connect.</span></h2>
-                        <p className="text-base md:text-xl text-slate-400 font-medium max-w-sm">Ready to build high-performance infrastructure? I'm always open to new challenges.</p>
+                        <h2 className="text-4xl md:text-6xl font-black text-white italic tracking-tighter leading-none uppercase">Let&apos;s <br /> <span className="text-slate-600">Connect.</span></h2>
+                        <p className="text-base md:text-xl text-slate-400 font-medium max-w-sm">Ready to build high-performance infrastructure? I&apos;m always open to new challenges.</p>
 
                         <div className="flex gap-4 flex-wrap">
                             <SocialIcon icon={<Linkedin />} href="https://linkedin.com/in/amitabh-devops" label="LinkedIn Profile" />

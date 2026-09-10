@@ -9,8 +9,8 @@ import { staggerContainer } from "@/lib/animations";
 export default function Skills() {
     return (
         <section id="skills" className="scroll-mt-32">
-            <span className="section-subtitle">Subsystems</span>
-            <h2 className="section-title mt-4">Technical Arsenal.</h2>
+            <span className="section-subtitle">Technical Skills</span>
+            <h2 className="section-title mt-4">Cloud &amp; DevOps Skills.</h2>
 
             <div className="mt-16 space-y-20">
                 <div>

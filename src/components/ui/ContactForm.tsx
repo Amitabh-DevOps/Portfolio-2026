@@ -34,7 +34,7 @@ export default function ContactForm() {
             } else {
                 setStatus("error");
             }
-        } catch (error) {
+        } catch {
             setStatus("error");
         }
     };
@@ -46,7 +46,7 @@ export default function ContactForm() {
                     <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
                 </div>
                 <h3 className="text-2xl font-bold text-white">Signal Received.</h3>
-                <p className="text-slate-400">Thank you for connecting. I'll deploy a response shortly.</p>
+                <p className="text-slate-400">Thank you for connecting. I&apos;ll deploy a response shortly.</p>
                 <button onClick={() => setStatus("idle")} className="text-sm font-bold text-primary uppercase tracking-widest hover:text-white transition-colors">Send Another</button>
             </div>
         );
