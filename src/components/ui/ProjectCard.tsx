@@ -30,7 +30,7 @@ export default function ProjectCard({ number, image, title, desc, tags, link }: 
                     src={image}
                     alt={title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-all duration-700 grayscale-[0.35] group-hover:grayscale-0"
+                    className={`object-cover transition-all duration-700 ${isActive ? "scale-105 grayscale-0" : "grayscale-[0.35] group-hover:scale-105 group-hover:grayscale-0"}`}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <span className="absolute top-3 left-3 px-2 py-1 rounded-md bg-slate-950/75 border border-white/15 text-[10px] font-mono text-primary z-20">{number}</span>
@@ -40,12 +40,12 @@ export default function ProjectCard({ number, image, title, desc, tags, link }: 
             </div>
             <div className="space-y-4 px-2 pb-2">
                 <div className="flex justify-between items-start gap-4">
-                    <h3 className="text-base md:text-xl font-semibold text-white tracking-tight leading-tight group-hover:text-primary transition-colors">{title}</h3>
+                    <h3 className={`text-base md:text-xl font-semibold tracking-tight leading-tight transition-colors ${isActive ? "text-primary" : "text-white group-hover:text-primary"}`}>{title}</h3>
                 </div>
                 <p className="text-sm text-slate-400 font-medium line-clamp-3 leading-relaxed">{desc}</p>
                 <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10">
                     {tags.map((tag) => (
-                        <span key={tag} className="px-2.5 py-1 rounded-md bg-white/5 border border-white/5 text-[9px] font-bold text-slate-500 uppercase tracking-widest group-hover:border-primary/20 transition-all">
+                        <span key={tag} className={`px-2.5 py-1 rounded-md bg-white/5 text-[9px] font-bold text-slate-500 uppercase tracking-widest transition-all ${isActive ? "border border-primary/20" : "border border-white/5 group-hover:border-primary/20"}`}>
                             {tag}
                         </span>
                     ))}

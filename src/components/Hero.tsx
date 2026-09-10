@@ -23,6 +23,7 @@ function isRelevantGithubEvent(event: unknown): event is GithubEvent {
 export default function Hero() {
     const [lastCommit, setLastCommit] = useState<string | null>(null);
     const [isProfileActive, setIsProfileActive] = useState(false);
+    const [activeStackItem, setActiveStackItem] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchGithubActivity = async () => {
@@ -135,11 +136,28 @@ export default function Hero() {
                         className="flex flex-wrap items-center gap-6 pt-7 border-t border-white/10"
                     >
                         <p className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">Works with</p>
-                        <div className="flex items-center gap-5 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-                            <Image src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg" width={24} height={24} alt="Docker" />
-                            <Image src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" width={24} height={24} alt="K8s" />
-                            <Image src="https://www.vectorlogo.zone/logos/terraformio/terraformio-icon.svg" width={24} height={24} alt="Terraform" />
-                            <Image src="/aws-logo.svg" width={40} height={40} alt="AWS" className="object-contain" />
+                        <div className="flex items-center gap-3">
+                            {[
+                                { name: "Docker", src: "https://www.vectorlogo.zone/logos/docker/docker-icon.svg", size: 24 },
+                                { name: "Kubernetes", src: "https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg", size: 24 },
+                                { name: "Terraform", src: "https://www.vectorlogo.zone/logos/terraformio/terraformio-icon.svg", size: 24 },
+                                { name: "AWS", src: "/aws-logo.svg", size: 40 },
+                            ].map((item) => {
+                                const isActive = activeStackItem === item.name;
+
+                                return (
+                                    <button
+                                        key={item.name}
+                                        type="button"
+                                        onClick={() => setActiveStackItem(isActive ? null : item.name)}
+                                        aria-label={`${item.name} preferred stack${isActive ? " active" : ""}`}
+                                        aria-pressed={isActive}
+                                        className={`flex h-11 w-11 items-center justify-center rounded-lg border transition-all duration-500 ${isActive ? "border-primary/40 bg-white/[0.08] grayscale-0" : "border-transparent opacity-70 grayscale hover:opacity-100 hover:grayscale-0 focus-visible:opacity-100 focus-visible:grayscale-0"}`}
+                                    >
+                                        <Image src={item.src} width={item.size} height={item.size} alt={item.name} className="object-contain" />
+                                    </button>
+                                );
+                            })}
                         </div>
                     </motion.div>
                 </div>
