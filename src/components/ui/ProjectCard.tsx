@@ -24,7 +24,7 @@ export default function ProjectCard({ number, image, title, desc, tags, link }: 
             return;
         }
 
-        setIsActive((active) => !active);
+        setIsActive(true);
     };
 
     return (
