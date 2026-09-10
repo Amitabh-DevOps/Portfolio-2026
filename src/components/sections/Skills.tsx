@@ -33,7 +33,7 @@ export default function Skills() {
                         className="grid grid-cols-2 md:grid-cols-3 gap-3"
                     >
                         <SkillItem name="Linux" icon="https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png" color="#fcc624" />
-                        <SkillItem name="AWS" icon="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png" color="#ff9900" />
+                        <SkillItem name="AWS" icon="/aws-logo.svg" color="#ff9900" />
                         <SkillItem name="Docker" icon="https://www.vectorlogo.zone/logos/docker/docker-icon.svg" color="#2496ed" />
                         <SkillItem name="Kubernetes" icon="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" color="#326ce5" />
                         <SkillItem name="Terraform" icon="https://www.vectorlogo.zone/logos/terraformio/terraformio-icon.svg" color="#7b42bc" />

@@ -138,7 +138,7 @@ export default function Hero() {
                             <Image src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg" width={24} height={24} alt="Docker" />
                             <Image src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" width={24} height={24} alt="K8s" />
                             <Image src="https://www.vectorlogo.zone/logos/terraformio/terraformio-icon.svg" width={24} height={24} alt="Terraform" />
-                            <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png" width={40} height={40} alt="AWS" className="object-contain" />
+                            <Image src="/aws-logo.svg" width={40} height={40} alt="AWS" className="object-contain" />
                         </div>
                     </motion.div>
                 </div>

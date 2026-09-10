@@ -11,15 +11,17 @@ export default function SkillItem({ name, icon, color }: { name: string, icon: s
         <motion.div
             variants={fadeInUp}
             whileHover={{ y: -5 }}
-            className="relative p-4 bg-white/[0.03] border border-white/10 rounded-lg flex flex-col items-center gap-3 hover:bg-white/[0.06] hover:border-primary/40 transition-all group overflow-hidden"
+            whileTap={{ scale: 0.97 }}
+            tabIndex={0}
+            className="relative p-4 bg-white/[0.03] border border-white/10 rounded-lg flex flex-col items-center gap-3 hover:bg-white/[0.06] active:bg-white/[0.06] focus-visible:bg-white/[0.06] hover:border-primary/40 active:border-primary/40 focus-visible:border-primary/40 transition-all group overflow-hidden"
         >
             {/* Brand Glow Backdrop */}
             <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-700"
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 blur-2xl transition-opacity duration-700"
                 style={{ backgroundColor: color ? `${color}15` : 'rgba(56, 189, 248, 0.05)' }}
             />
 
-            <div className="relative w-9 h-9 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all duration-700 z-10">
+            <div className="relative w-9 h-9 flex items-center justify-center grayscale group-hover:grayscale-0 group-focus-visible:grayscale-0 transition-all duration-700 z-10">
                 <Image
                     src={icon}
                     alt={name}
@@ -28,7 +30,7 @@ export default function SkillItem({ name, icon, color }: { name: string, icon: s
                     className="object-contain"
                 />
             </div>
-            <span className="relative text-xs font-semibold text-slate-400 group-hover:text-white transition-colors duration-700 z-10">{name}</span>
+            <span className="relative text-xs font-semibold text-slate-400 group-hover:text-white group-focus-visible:text-white transition-colors duration-700 z-10">{name}</span>
         </motion.div>
     );
 }
