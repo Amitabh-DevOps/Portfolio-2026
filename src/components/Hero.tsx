@@ -22,6 +22,7 @@ function isRelevantGithubEvent(event: unknown): event is GithubEvent {
 
 export default function Hero() {
     const [lastCommit, setLastCommit] = useState<string | null>(null);
+    const [isProfileActive, setIsProfileActive] = useState(false);
 
     useEffect(() => {
         const fetchGithubActivity = async () => {
@@ -150,8 +151,21 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="order-1 lg:order-2 flex justify-center lg:justify-end"
                 >
-                    <div className="relative group z-[10000]">
-                        <div className="absolute inset-8 bg-primary/20 rounded-full blur-[70px] group-hover:blur-[90px] transition-all duration-1000 -z-10" />
+                    <div
+                        className="relative group z-[10000] cursor-pointer"
+                        onClick={() => setIsProfileActive((active) => !active)}
+                        onKeyDown={(event) => {
+                            if (event.key === "Enter" || event.key === " ") {
+                                event.preventDefault();
+                                setIsProfileActive((active) => !active);
+                            }
+                        }}
+                        role="button"
+                        aria-pressed={isProfileActive}
+                        aria-label={`Profile photo${isProfileActive ? " active" : ""}`}
+                        tabIndex={0}
+                    >
+                        <div className={`absolute inset-8 bg-primary/20 rounded-full transition-all duration-1000 -z-10 ${isProfileActive ? "blur-[90px]" : "blur-[70px] group-hover:blur-[90px]"}`} />
                         <div className="relative w-72 h-80 md:w-[26rem] md:h-[34rem] rounded-[2rem] overflow-hidden border border-white/15 bg-slate-900 shadow-2xl">
                             <Image
                                 src="/profile-pic.jpeg"
@@ -159,7 +173,7 @@ export default function Hero() {
                                 fill
                                 sizes="(max-width: 1024px) 288px, 384px"
                                 unoptimized
-                                className="object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-in-out"
+                                className={`object-cover transition-transform duration-[1500ms] ease-in-out ${isProfileActive ? "scale-105" : "group-hover:scale-105"}`}
                                 priority
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent" />

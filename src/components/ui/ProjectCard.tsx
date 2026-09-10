@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
@@ -17,10 +17,13 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ number, image, title, desc, tags, link }: ProjectCardProps) {
+    const [isActive, setIsActive] = useState(false);
+
     return (
         <motion.div
             variants={fadeInUp}
-            className="group glass-morphism p-3 md:p-4 rounded-2xl border-white/10 hover:border-primary/50 transition-all duration-500 overflow-hidden relative"
+            onClick={() => setIsActive((active) => !active)}
+            className={`group glass-morphism p-3 md:p-4 rounded-2xl border-white/10 transition-all duration-500 overflow-hidden relative ${isActive ? "border-primary/50" : "hover:border-primary/50"}`}
         >
             <div className="relative aspect-video w-full rounded-xl overflow-hidden mb-5 bg-slate-950/70">
                 <Image
@@ -31,7 +34,7 @@ export default function ProjectCard({ number, image, title, desc, tags, link }: 
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <span className="absolute top-3 left-3 px-2 py-1 rounded-md bg-slate-950/75 border border-white/15 text-[10px] font-mono text-primary z-20">{number}</span>
-                <a href={link} target="_blank" rel="noopener noreferrer" aria-label={`View ${title} repository`} className="absolute top-3 right-3 p-3 bg-slate-950/75 border border-white/15 rounded-lg opacity-0 translate-y-1 pointer-events-none transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto focus-visible:opacity-100 focus-visible:translate-y-0 focus-visible:pointer-events-auto hover:bg-primary hover:text-slate-950 hover:border-primary text-white z-20">
+                <a href={link} target="_blank" rel="noopener noreferrer" onClick={(event) => event.stopPropagation()} aria-label={`View ${title} repository`} className={`absolute top-3 right-3 p-3 bg-slate-950/75 border border-white/15 rounded-lg translate-y-1 pointer-events-none transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto focus-visible:opacity-100 focus-visible:translate-y-0 focus-visible:pointer-events-auto hover:bg-primary hover:text-slate-950 hover:border-primary text-white z-20 ${isActive ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0"}`}>
                     <ArrowUpRight className="w-5 h-5" />
                 </a>
             </div>
